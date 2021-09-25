@@ -1,8 +1,14 @@
 package models
 
-import "database/sql"
+import (
+	"database/sql"
+
+	"gorm.io/gorm"
+)
 
 type Schedule struct {
+	gorm.Model
+
 	Name string
 
 	ApplicationID uint

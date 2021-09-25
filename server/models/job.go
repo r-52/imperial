@@ -25,4 +25,5 @@ type Job struct {
 	CompanyPersonJob  []CompanyPersonJob
 	KnowledgeID       uint
 	JobField          []JobField
+	Tag               []Tag
 }

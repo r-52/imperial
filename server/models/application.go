@@ -19,7 +19,7 @@ type Application struct {
 	LastName  string
 	Email     string
 
-	AccptedByPersonID  uint
+	AcceptedByPersonID uint
 	RejectedByPersonID uint
 	InvitedByPersonID  uint
 
@@ -32,4 +32,5 @@ type Application struct {
 	ApplicationStatusID uint
 
 	Schedule []Schedule
+	Tag      []Tag
 }

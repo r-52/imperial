@@ -17,8 +17,11 @@ type CompanyPerson struct {
 	Phone        string
 	Position     string
 
-	CompanyID        uint
-	CompanyPersonJob []CompanyPersonJob
-	Application      []Application
-	Schedule         []Schedule
+	CompanyID                uint
+	CompanyPersonJob         []CompanyPersonJob
+	AcceptedApplication      []Application `gorm:"foreignKey:AcceptedByPersonID"`
+	RejectedApplication      []Application `gorm:"foreignKey:RejectedByPersonID"`
+	InvitedApplication       []Application `gorm:"foreignKey:InvitedByPersonID"`
+	Schedule                 []Schedule
+	ApplicationInterviewNote []ApplicationInterviewNote
 }

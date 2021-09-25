@@ -6,6 +6,10 @@ import (
 	"gorm.io/gorm"
 )
 
+func GetDatabase() *gorm.DB {
+	return InitDatabase()
+}
+
 func InitDatabase() *gorm.DB {
 	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	if err != nil {
@@ -25,7 +29,10 @@ func InitDatabase() *gorm.DB {
 		&models.ApplicationStatus{},
 		&models.Application{},
 		&models.Schedule{},
-		&models.ScheduleEntry{})
+		&models.ScheduleEntry{},
+		&models.MailTemplate{},
+		&models.InterviewType{},
+		&models.ApplicationInterviewNote{})
 
 	return db
 }

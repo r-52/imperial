@@ -15,7 +15,13 @@ type Company struct {
 	Imprint                sql.NullString
 	Phone                  sql.NullString
 	Email                  sql.NullString
+	AdminEmail             string
 	Slogan                 sql.NullString
+
+	CompanyUrl   string
+	FacebookUrl  string
+	TwitterUrl   string
+	InstagramUrl string
 
 	CustomStyleSheetInjection sql.NullString
 	CustomLogoUrl             sql.NullString
@@ -24,4 +30,7 @@ type Company struct {
 	ContactPerson   []CompanyPerson
 	JobType         []JobType
 	Job             []Job
+	MailTemplate    []MailTemplate
+	InterviewType   []InterviewType
+	Knowledge       []Knowledge
 }
