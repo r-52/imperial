@@ -11,7 +11,7 @@ import (
 )
 
 func createCompany(c *fiber.Ctx) error {
-	viewModel := new(company.Company)
+	viewModel := new(company.CompanyViewModel)
 	if err := c.BodyParser(viewModel); err != nil {
 		response := errorViewModel.ErrorViewModel{IsError: true, Message: "body parsing failed"}
 		return c.JSON(response)
@@ -22,41 +22,88 @@ func createCompany(c *fiber.Ctx) error {
 		return c.JSON(response)
 	}
 
-	company := new(models.Company)
-	company.AdminEmail = viewModel.AdminEmail
-	company.Name = viewModel.Name
-	company.Imprint = sql.NullString{String: viewModel.Imprint, Valid: true}
-	company.CompanyUrl = viewModel.Url
-	company.CustomLogoUrl = sql.NullString{String: viewModel.CustomLogoUrl, Valid: true}
-	company.DataProtectionTemplate = sql.NullString{String: viewModel.DataProtectionTemplate, Valid: true}
-	company.TermsOfServiceTemplate = sql.NullString{String: viewModel.TermsOfServiceTemplate, Valid: true}
-	company.CustomStyleSheetInjection = sql.NullString{String: viewModel.CustomStyleSheetInjection, Valid: true}
-
 	db := database.GetDatabase()
+
+	company := new(models.Company)
+	viewModel.ConvertToDbModel(company)
 	db.Create(&company)
 
-	return c.SendString("NOT_IMPLEMENTED")
+	companyPerson := new(models.CompanyPerson)
+	companyPerson.Email = viewModel.AdminEmail
+	companyPerson.SetRandomPassword()
+	companyPerson.SetPasswordResetToken()
+	companyPerson.FirstName = "CompanyAdmin"
+	companyPerson.LastName = "System"
+
+	companyPerson.CompanyID = company.ID
+	db.Create(&companyPerson)
+
+	location := new(models.CompanyLocation)
+	location.Zip = viewModel.Zip
+	location.City = viewModel.City
+	location.Street1 = viewModel.Street1
+	location.Street2 = sql.NullString{String: viewModel.Street2, Valid: true}
+	location.Country = viewModel.Country
+	location.County = sql.NullString{String: viewModel.County, Valid: true}
+	location.Name = viewModel.Name
+	location.CompanyID = company.ID
+	location.IsMainLocation = true
+
+	db.Create(&location)
+
+	return c.JSON(company)
 }
 
 func updateCompany(c *fiber.Ctx) error {
-	return c.SendString("NOT_IMPLEMENTED")
+	viewModel := new(company.CompanyViewModel)
+	if err := c.BodyParser(viewModel); err != nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "body parsing failed"}
+		return c.JSON(response)
+	}
+
+	if _, err := viewModel.Validate(); err != nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "validation failed"}
+		return c.JSON(response)
+	}
+	id := c.Params("id")
+
+	company := new(models.Company)
+	db := database.GetDatabase()
+	db.Where("Uid = ?", id).First(&company)
+	viewModel.ConvertToDbModel(company)
+	db.Save(&company)
+	return c.JSON(company)
 }
 
 func deleteCompany(c *fiber.Ctx) error {
-	return c.SendString("NOT_IMPLEMENTED")
+	id := c.Params("id")
+	company := new(models.Company)
+	db := database.GetDatabase()
+	db.Where("Uid = ?", id).First(&company)
+
+	if company == nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "delete not possible"}
+		return c.JSON(response)
+	}
+
+	db.Delete(&company)
+	return c.SendStatus(fiber.StatusOK)
 }
 
 func getCompanyById(c *fiber.Ctx) error {
-	return c.SendString("NOT_IMPLEMENTED")
-}
-
-func getAllCompanies(c *fiber.Ctx) error {
-	return c.SendString("NOT_IMPLEMENTED")
+	id := c.Params("id")
+	company := new(models.Company)
+	db := database.GetDatabase()
+	db.Where("Uid = ?", id).First(&company)
+	if company == nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "delete not possible"}
+		return c.JSON(response)
+	}
+	return c.JSON(company)
 }
 
 func SetupCompanyRoutes(router fiber.Router) {
 	router.Get("/:id", getCompanyById)
-	router.Get("/", getAllCompanies)
 	router.Patch("/update/:id", updateCompany)
 	router.Delete("/delete/:id", deleteCompany)
 	router.Post("/", createCompany)

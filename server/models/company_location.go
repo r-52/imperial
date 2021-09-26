@@ -16,8 +16,10 @@ type CompanyLocation struct {
 	Street2 sql.NullString
 	Zip     string
 	City    string
-	County  string
+	County  sql.NullString
 	Country string
+
+	IsMainLocation bool
 
 	Job []Job
 }

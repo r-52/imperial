@@ -2,12 +2,17 @@ package models
 
 import (
 	"database/sql"
+	"errors"
 
+	gonanoid "github.com/matoous/go-nanoid/v2"
 	"gorm.io/gorm"
 )
 
 type Job struct {
 	gorm.Model
+
+	Slug string
+	Uid  string
 
 	Title             string
 	Subline           sql.NullString
@@ -26,4 +31,15 @@ type Job struct {
 	KnowledgeID       uint
 	JobField          []JobField
 	Tag               []Tag
+}
+
+func (c *Job) BeforeCreate(tx *gorm.DB) (err error) {
+	id, e := gonanoid.New(32)
+
+	if e != nil {
+		err = errors.New("could not generate unique id")
+	}
+
+	c.Uid = id
+	return
 }
