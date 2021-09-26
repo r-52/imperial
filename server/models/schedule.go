@@ -11,21 +11,21 @@ import (
 type Schedule struct {
 	gorm.Model
 
-	Name string
+	Name string `json:"name"`
 
-	Uid string
+	Uid string `json:"uid" gorm:"uniqueIndex"`
 
-	ApplicationID uint
+	ApplicationID uint `json:"-"`
 
-	OpenTill sql.NullTime
-	IsClosed bool
+	OpenTill sql.NullTime `json:"openTill"`
+	IsClosed bool         `json:"isClosed"`
 
-	TimeChosenAt         sql.NullTime
-	CloseAfterTimePicked bool
+	TimeChosenAt         sql.NullTime `json:"timeChosenAt"`
+	CloseAfterTimePicked bool         `json:"closeAfterTimePicked"`
 
-	NotifyWhenDoneEmail string
-	CompanyPersonID     uint
-	ScheduleEntry       []ScheduleEntry
+	NotifyWhenDoneEmail *string          `json:"notifyWhenDoneEmail"`
+	CompanyPersonID     *uint            `json:"companyPerson"`
+	ScheduleEntry       *[]ScheduleEntry `json:"entries"`
 }
 
 func (c *Schedule) BeforeCreate(tx *gorm.DB) (err error) {

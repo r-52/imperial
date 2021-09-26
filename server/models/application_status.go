@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type ApplicationStatus struct {
 	gorm.Model
-	Name string
+	Name string `json:"name"`
 
-	Application []Application
+	Application []Application `json:"-"`
 }

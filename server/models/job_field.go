@@ -9,16 +9,16 @@ import (
 type JobField struct {
 	gorm.Model
 
-	JobID   uint
-	FieldID uint
+	JobID   *uint `json:"-"`
+	FieldID *uint `json:"-"`
 
-	Position uint
+	Position uint `json:"position"`
 
-	Label       string
-	Payload     sql.NullString // for select stuff
-	Placeholder sql.NullString
-	HelpText    sql.NullString
-	IsRequired  bool
+	Label       string         `json:"label"`
+	Payload     sql.NullString `json:"payload"` // for select stuff
+	Placeholder sql.NullString `json:"placeholder"`
+	HelpText    sql.NullString `json:"helpText"`
+	IsRequired  bool           `json:"isRequired"`
 
-	JobFieldValue []JobFieldValue
+	JobFieldValue *[]JobFieldValue `json:"-"`
 }

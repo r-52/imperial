@@ -5,7 +5,7 @@ import "gorm.io/gorm"
 type JobType struct {
 	gorm.Model
 
-	Name string
+	Name string `json:"name"`
 
-	CompanyID uint
+	CompanyID uint `json:"-"`
 }

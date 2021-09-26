@@ -13,26 +13,26 @@ import (
 type CompanyPerson struct {
 	gorm.Model
 
-	FirstName    string
-	LastName     string
-	AvatarUrl    sql.NullString
-	PasswordHash string
-	Email        string
-	Phone        string
-	Position     string
+	FirstName    string         `json:"firstName"`
+	LastName     string         `json:"lastName"`
+	AvatarUrl    sql.NullString `json:"avatarUrl"`
+	PasswordHash string         `json:"-"`
+	Email        string         `json:"email"`
+	Phone        string         `json:"phone"`
+	Position     string         `json:"position"`
 
-	PasswordResetToken      string
-	PasswordResetTokenSetAt sql.NullTime
+	PasswordResetToken      string       `json:"-"`
+	PasswordResetTokenSetAt sql.NullTime `json:"-"`
 
-	Uid string
+	Uid string `json:"uid" gorm:"uniqueIndex"`
 
-	CompanyID                uint
-	CompanyPersonJob         []CompanyPersonJob
-	AcceptedApplication      []Application `gorm:"foreignKey:AcceptedByPersonID"`
-	RejectedApplication      []Application `gorm:"foreignKey:RejectedByPersonID"`
-	InvitedApplication       []Application `gorm:"foreignKey:InvitedByPersonID"`
-	Schedule                 []Schedule
-	ApplicationInterviewNote []ApplicationInterviewNote
+	CompanyID                uint                        `json:"company"`
+	CompanyPersonJob         *[]CompanyPersonJob         `json:"companyPersonJob"`
+	AcceptedApplication      *[]Application              `json:"acceptedApplications" gorm:"foreignKey:AcceptedByPersonID"`
+	RejectedApplication      *[]Application              `json:"rejectedApplications" gorm:"foreignKey:RejectedByPersonID"`
+	InvitedApplication       *[]Application              `json:"invitedApplications" gorm:"foreignKey:InvitedByPersonID"`
+	Schedule                 *[]Schedule                 `json:"schedule"`
+	ApplicationInterviewNote *[]ApplicationInterviewNote `json:"applicationInterviewNote"`
 }
 
 func (c *CompanyPerson) SetPasswordResetToken() {

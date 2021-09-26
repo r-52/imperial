@@ -9,8 +9,8 @@ import (
 
 type ScheduleEntry struct {
 	gorm.Model
-	Date       time.Time
-	IsChosen   bool
-	Note       sql.NullString
-	ScheduleID uint
+	Date       time.Time      `json:"date"`
+	IsChosen   bool           `json:"isChosen"`
+	Note       sql.NullString `json:"note"`
+	ScheduleID uint           `json:"-"`
 }

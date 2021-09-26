@@ -9,6 +9,8 @@ import (
 type Application struct {
 	gorm.Model
 
+	Uid string `json:"uid" gorm:"uniqueIndex"`
+
 	AppliedAt                      sql.NullTime
 	ConfirmationSentAt             sql.NullTime
 	ApplicationOpenedAt            sql.NullTime

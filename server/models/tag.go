@@ -5,9 +5,9 @@ import "gorm.io/gorm"
 type Tag struct {
 	gorm.Model
 
-	Name  string
-	Color string
+	Name  string `json:"name"`
+	Color string `json:"color"`
 
-	ApplicationID uint
-	JobID         uint
+	ApplicationID *uint `json:"-"`
+	JobID         *uint `json:"-"`
 }
