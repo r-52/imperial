@@ -1,17 +1,15 @@
 package routes
 
 import (
-	"database/sql"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/r-52/imperial/database"
 	"github.com/r-52/imperial/models"
-	"github.com/r-52/imperial/view_model/company"
+	companyViewModel "github.com/r-52/imperial/view_model/company"
 	errorViewModel "github.com/r-52/imperial/view_model/error"
 )
 
 func createCompany(c *fiber.Ctx) error {
-	viewModel := new(company.CompanyViewModel)
+	viewModel := new(companyViewModel.CompanyViewModel)
 	if err := c.BodyParser(viewModel); err != nil {
 		response := errorViewModel.ErrorViewModel{IsError: true, Message: "body parsing failed"}
 		return c.JSON(response)
@@ -42,20 +40,20 @@ func createCompany(c *fiber.Ctx) error {
 	location.Zip = viewModel.Zip
 	location.City = viewModel.City
 	location.Street1 = viewModel.Street1
-	location.Street2 = sql.NullString{String: viewModel.Street2, Valid: true}
+	location.Street2 = viewModel.Street2
 	location.Country = viewModel.Country
-	location.County = sql.NullString{String: viewModel.County, Valid: true}
+	location.County = viewModel.County
 	location.Name = viewModel.Name
 	location.CompanyID = company.ID
 	location.IsMainLocation = true
 
 	db.Create(&location)
 
-	return c.JSON(company)
+	return c.JSON(companyViewModel.ToViewModel(company, location))
 }
 
 func updateCompany(c *fiber.Ctx) error {
-	viewModel := new(company.CompanyViewModel)
+	viewModel := new(companyViewModel.CompanyViewModel)
 	if err := c.BodyParser(viewModel); err != nil {
 		response := errorViewModel.ErrorViewModel{IsError: true, Message: "body parsing failed"}
 		return c.JSON(response)
@@ -99,7 +97,14 @@ func getCompanyById(c *fiber.Ctx) error {
 		response := errorViewModel.ErrorViewModel{IsError: true, Message: "delete not possible"}
 		return c.JSON(response)
 	}
-	return c.JSON(company)
+
+	for _, v := range company.CompanyLocation {
+		if v.IsMainLocation {
+			return c.JSON(companyViewModel.ToViewModel(company, &v))
+		}
+	}
+	response := errorViewModel.ErrorViewModel{IsError: true, Message: "no main location found"}
+	return c.JSON(response)
 }
 
 func SetupCompanyRoutes(router fiber.Router) {

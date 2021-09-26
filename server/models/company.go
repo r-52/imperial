@@ -1,7 +1,6 @@
 package models
 
 import (
-	"database/sql"
 	"errors"
 
 	gonanoid "github.com/matoous/go-nanoid/v2"
@@ -12,13 +11,13 @@ type Company struct {
 	gorm.Model
 
 	Name                   string
-	DataProtectionTemplate sql.NullString
-	TermsOfServiceTemplate sql.NullString
-	Imprint                sql.NullString
-	Phone                  sql.NullString
-	Email                  sql.NullString
+	DataProtectionTemplate string
+	TermsOfServiceTemplate string
+	Imprint                string
+	Phone                  string
+	Email                  string
 	AdminEmail             string
-	Slogan                 sql.NullString
+	Slogan                 string
 
 	Uid string
 
@@ -27,8 +26,8 @@ type Company struct {
 	TwitterUrl   string
 	InstagramUrl string
 
-	CustomStyleSheetInjection sql.NullString
-	CustomLogoUrl             sql.NullString
+	CustomStyleSheetInjection string
+	CustomLogoUrl             string
 
 	CompanyLocation []CompanyLocation
 	ContactPerson   []CompanyPerson

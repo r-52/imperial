@@ -24,6 +24,7 @@ func InitDatabase() *gorm.DB {
 		&models.CompanyPersonJob{},
 		&models.Field{},
 		&models.Job{},
+		&models.JobCompanyLocation{},
 		&models.JobField{},
 		&models.JobFieldValue{},
 		&models.ApplicationStatus{},

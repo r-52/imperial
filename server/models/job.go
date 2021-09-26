@@ -30,12 +30,12 @@ type Job struct {
 	IsJobPublic bool `json:"isJobPublic"`
 	IsJobDraft  bool `json:"isJobDraft"`
 
-	CompanyLocationID *uint               `json:"-"`
-	CompanyID         *uint               `json:"-"`
-	CompanyPersonJob  *[]CompanyPersonJob `json:"-"`
-	KnowledgeID       *uint               `json:"-"`
-	JobField          *[]JobField         `json:"-"`
-	Tag               *[]Tag              `json:"-"`
+	JobCompanyLocation *[]JobCompanyLocation `json:"-"`
+	CompanyID          *uint                 `json:"-"`
+	CompanyPersonJob   *[]CompanyPersonJob   `json:"-"`
+	KnowledgeID        *uint                 `json:"-"`
+	JobField           *[]JobField           `json:"-"`
+	Tag                *[]Tag                `json:"-"`
 }
 
 func (c *Job) BeforeCreate(tx *gorm.DB) (err error) {
