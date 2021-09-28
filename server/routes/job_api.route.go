@@ -14,13 +14,23 @@ import (
 func getJobById(c *fiber.Ctx) error {
 	companyUid := c.Get("company", "")
 	jobUid := c.Get("id", "")
+	if len(jobUid) == 0 || len(companyUid) == 0 {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "company or job not provided"}
+		return c.JSON(response)
+	}
 
 	db := database.GetDatabase()
 	company := new(models.Company)
 	job := new(models.Job)
 
-	db.Find("uid = ?", companyUid).First(&company)
-	db.Find("uid = ? AND company_id = ?", jobUid, company.ID).First(&job)
+	if err := db.Find("uid = ?", companyUid).First(&company); err != nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "company not found"}
+		return c.JSON(response)
+	}
+	if err := db.Find("uid = ? AND company_id = ?", jobUid, company.ID).First(&job); err != nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "job not found"}
+		return c.JSON(response)
+	}
 
 	return c.JSON(job)
 }
