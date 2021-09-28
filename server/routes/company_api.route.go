@@ -92,9 +92,9 @@ func getCompanyById(c *fiber.Ctx) error {
 	id := c.Params("id")
 	company := new(models.Company)
 	db := database.GetDatabase()
-	db.Where("Uid = ?", id).Preload("CompanyLocation").First(&company)
-	if company == nil {
-		response := errorViewModel.ErrorViewModel{IsError: true, Message: "delete not possible"}
+	err := db.Where("Uid = ?", id).Preload("CompanyLocation").First(&company)
+	if err != nil {
+		response := errorViewModel.ErrorViewModel{IsError: true, Message: "company not found"}
 		return c.JSON(response)
 	}
 

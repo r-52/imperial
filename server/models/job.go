@@ -14,12 +14,12 @@ type Job struct {
 	Slug string `json:"slug"`
 	Uid  string `json:"uid" gorm:"uniqueIndex"`
 
-	Title             string         `json:"title,omitempty"`
-	Subline           sql.NullString `json:"subline,omitempty"`
-	Intro             string         `json:"intro,omitempty"`
-	Description       string         `json:"description,omitempty"`
-	JobLogo           string         `json:"jobLogo,omitempty"`
-	ApplyPossibleTill sql.NullTime   `json:"applyPossibleTill,omitempty"`
+	Title             string       `json:"title,omitempty"`
+	Subline           string       `json:"subline,omitempty"`
+	Intro             string       `json:"intro,omitempty"`
+	Description       string       `json:"description,omitempty"`
+	JobLogo           string       `json:"jobLogo,omitempty"`
+	ApplyPossibleTill sql.NullTime `json:"applyPossibleTill,omitempty"`
 
 	ExternalJobUrlForApply sql.NullString `json:"externalJobUrlForApply,omitempty"`
 
@@ -30,12 +30,12 @@ type Job struct {
 	IsJobPublic bool `json:"isJobPublic"`
 	IsJobDraft  bool `json:"isJobDraft"`
 
-	JobCompanyLocation *[]JobCompanyLocation `json:"-"`
+	JobCompanyLocation []*JobCompanyLocation `json:"location"`
 	CompanyID          *uint                 `json:"-"`
-	CompanyPersonJob   *[]CompanyPersonJob   `json:"-"`
+	CompanyPersonJob   []*CompanyPersonJob   `json:"person"`
 	KnowledgeID        *uint                 `json:"-"`
-	JobField           *[]JobField           `json:"-"`
-	Tag                *[]Tag                `json:"-"`
+	JobField           []*JobField           `json:"field"`
+	Tag                []*Tag                `json:"-"`
 }
 
 func (c *Job) BeforeCreate(tx *gorm.DB) (err error) {
