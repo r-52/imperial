@@ -16,6 +16,7 @@ import { PersonDetailsComponent } from "./person/person-details/person-details.c
 import { AuthForgottenComponent } from "./auth/auth-forgotten/auth-forgotten.component";
 import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
 import { AuthRegisterComponent } from "./auth/auth-register/auth-register.component";
+import { NavigationListComponent } from './shared/components/navigation/navigation-list/navigation-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthRegisterComponent } from "./auth/auth-register/auth-register.compon
     AuthForgottenComponent,
     AuthLoginComponent,
     AuthRegisterComponent,
+    NavigationListComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, MaterialModule],
 })

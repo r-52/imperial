@@ -42,7 +42,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: "applications/:page",
+        path: "applications",
         component: ApplicationListComponent,
         pathMatch: "full",
       },
@@ -69,7 +69,7 @@ const routes: Routes = [
       },
 
       {
-        path: "locations/:page",
+        path: "locations",
         component: LocationListComponent,
         pathMatch: "full",
       },
@@ -104,7 +104,7 @@ const routes: Routes = [
       },
 
       {
-        path: "persons/:page",
+        path: "persons",
         component: PersonListComponent,
         pathMatch: "full",
       },
@@ -139,7 +139,7 @@ const routes: Routes = [
       },
 
       {
-        path: "jobs/:page",
+        path: "jobs",
         component: JobListComponent,
         pathMatch: "full",
       },

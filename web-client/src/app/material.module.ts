@@ -9,6 +9,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatListModule } from "@angular/material/list";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTabsModule } from "@angular/material/tabs";
 
 @NgModule({
   declarations: [],
@@ -22,6 +24,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatButtonToggleModule,
     MatListModule,
     MatMenuModule,
+    MatSnackBarModule,
+    MatTabsModule,
   ],
   imports: [
     CommonModule,
@@ -34,6 +38,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatButtonToggleModule,
     MatListModule,
     MatMenuModule,
+    MatSnackBarModule,
+    MatTabsModule,
   ],
 })
 export class MaterialModule {}
