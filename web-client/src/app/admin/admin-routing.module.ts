@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ListComponent as JobList } from './job/list/list.component';
-import { DetailsComponent as JobDetails } from './job/details/details.component';
-import { PreviewComponent as JobPreview } from './job/preview/preview.component';
-import { ListComponent as LocationList } from './location/list/list.component';
-import { DetailsComponent as LocationDetails } from './location/details/details.component';
-import { ListComponent as PersonList } from './person/list/list.component';
-import { DetailsComponent as PersonDetails } from './person/details/details.component';
-import { ListComponent as ApplicationList } from './application/list/list.component';
-import { DetailsComponent as ApplicationDetails } from './application/details/details.component';
+import { ApplicationListComponent } from './application/application-list/application-list.component';
+import { ApplicationDetailsComponent } from './application/application-details/application-details.component';
+import { LocationListComponent } from './location/location-list/location-list.component';
+import { LocationDetailsComponent } from './location/location-details/location-details.component';
+import { PersonListComponent } from './person/person-list/person-list.component';
+import { PersonDetailsComponent } from './person/person-details/person-details.component';
+import { JobListComponent } from './job/job-list/job-list.component';
+import { JobPreviewComponent } from './job/job-preview/job-preview.component';
+import { JobDetailsComponent } from './job/job-details/job-details.component';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
     children: [
       {
         path: 'applications/:page',
-        component: ApplicationList,
+        component: ApplicationListComponent,
         pathMatch: 'full',
       },
       {
@@ -27,19 +27,19 @@ const routes: Routes = [
           {
             path: 'new',
             pathMatch: 'full',
-            component: ApplicationDetails,
+            component: ApplicationDetailsComponent,
           },
           {
             path: 'details/:applicationId',
             pathMatch: 'full',
-            component: ApplicationDetails,
+            component: ApplicationDetailsComponent,
           },
         ],
       },
 
       {
         path: 'locations/:page',
-        component: LocationList,
+        component: LocationListComponent,
         pathMatch: 'full',
       },
       {
@@ -48,19 +48,19 @@ const routes: Routes = [
           {
             path: 'new',
             pathMatch: 'full',
-            component: LocationDetails,
+            component: LocationDetailsComponent,
           },
           {
             path: 'details/:locationId',
             pathMatch: 'full',
-            component: LocationDetails,
+            component: LocationDetailsComponent,
           },
         ],
       },
 
       {
         path: 'persons/:page',
-        component: PersonList,
+        component: PersonListComponent,
         pathMatch: 'full',
       },
       {
@@ -69,19 +69,19 @@ const routes: Routes = [
           {
             path: 'person',
             pathMatch: 'full',
-            component: PersonDetails,
+            component: PersonDetailsComponent,
           },
           {
             path: 'details/:personId',
             pathMatch: 'full',
-            component: PersonDetails,
+            component: PersonDetailsComponent,
           },
         ],
       },
 
       {
         path: 'jobs/:page',
-        component: JobList,
+        component: JobListComponent,
         pathMatch: 'full',
       },
       {
@@ -90,17 +90,17 @@ const routes: Routes = [
           {
             path: 'preview/:jobId',
             pathMatch: 'full',
-            component: JobPreview,
+            component: JobPreviewComponent,
           },
           {
             path: 'new',
             pathMatch: 'full',
-            component: JobDetails,
+            component: JobDetailsComponent,
           },
           {
             path: 'details/:jobId',
             pathMatch: 'full',
-            component: JobDetails,
+            component: JobDetailsComponent,
           },
         ],
       },

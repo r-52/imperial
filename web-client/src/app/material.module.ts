@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatButtonToggleModule,
     MatListModule,
+    MatMenuModule,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatButtonToggleModule,
     MatListModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule {}
