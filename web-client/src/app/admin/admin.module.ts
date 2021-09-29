@@ -13,6 +13,9 @@ import { LocationDetailsComponent } from "./location/location-details/location-d
 import { LocationListComponent } from "./location/location-list/location-list.component";
 import { PersonListComponent } from "./person/person-list/person-list.component";
 import { PersonDetailsComponent } from "./person/person-details/person-details.component";
+import { AuthForgottenComponent } from "./auth/auth-forgotten/auth-forgotten.component";
+import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
+import { AuthRegisterComponent } from "./auth/auth-register/auth-register.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { PersonDetailsComponent } from "./person/person-details/person-details.c
     LocationListComponent,
     PersonListComponent,
     PersonDetailsComponent,
+    AuthForgottenComponent,
+    AuthLoginComponent,
+    AuthRegisterComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, MaterialModule],
 })

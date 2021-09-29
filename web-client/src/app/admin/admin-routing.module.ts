@@ -12,8 +12,31 @@ import { JobPreviewComponent } from "./job/job-preview/job-preview.component";
 import { JobDetailsComponent } from "./job/job-details/job-details.component";
 import { DetailComponentModeModel } from "../shared/models/detail-component/detail-component-mode.model";
 import { DetailComponentModeEnum } from "../shared/enums/detail-component/detail-component-mode.enum";
+import { AuthRegisterComponent } from "./auth/auth-register/auth-register.component";
+import { AuthForgottenComponent } from "./auth/auth-forgotten/auth-forgotten.component";
+import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
 
 const routes: Routes = [
+  {
+    path: "auth",
+    children: [
+      {
+        pathMatch: "full",
+        path: "register",
+        component: AuthRegisterComponent,
+      },
+      {
+        pathMatch: "full",
+        path: "login",
+        component: AuthLoginComponent,
+      },
+      {
+        pathMatch: "full",
+        path: "forgotten",
+        component: AuthForgottenComponent,
+      },
+    ],
+  },
   {
     path: "",
     component: DashboardComponent,
