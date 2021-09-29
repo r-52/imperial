@@ -10,6 +10,8 @@ import { PersonDetailsComponent } from "./person/person-details/person-details.c
 import { JobListComponent } from "./job/job-list/job-list.component";
 import { JobPreviewComponent } from "./job/job-preview/job-preview.component";
 import { JobDetailsComponent } from "./job/job-details/job-details.component";
+import { DetailComponentModeModel } from "../shared/models/detail-component/detail-component-mode.model";
+import { DetailComponentModeEnum } from "../shared/enums/detail-component/detail-component-mode.enum";
 
 const routes: Routes = [
   {
@@ -28,11 +30,17 @@ const routes: Routes = [
             path: "new",
             pathMatch: "full",
             component: ApplicationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.newMode
+            ),
           },
           {
             path: "details/:applicationId",
             pathMatch: "full",
             component: ApplicationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.readOnlyMode
+            ),
           },
         ],
       },
@@ -49,11 +57,25 @@ const routes: Routes = [
             path: "new",
             pathMatch: "full",
             component: LocationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.newMode
+            ),
           },
           {
             path: "details/:locationId",
             pathMatch: "full",
             component: LocationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.readOnlyMode
+            ),
+          },
+          {
+            path: "edit/:locationId",
+            pathMatch: "full",
+            component: LocationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.editingMode
+            ),
           },
         ],
       },
@@ -67,14 +89,28 @@ const routes: Routes = [
         path: "person",
         children: [
           {
-            path: "person",
+            path: "new",
             pathMatch: "full",
             component: PersonDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.newMode
+            ),
           },
           {
             path: "details/:personId",
             pathMatch: "full",
             component: PersonDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.readOnlyMode
+            ),
+          },
+          {
+            path: "details/:personId",
+            pathMatch: "full",
+            component: PersonDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.editingMode
+            ),
           },
         ],
       },
@@ -96,11 +132,25 @@ const routes: Routes = [
             path: "new",
             pathMatch: "full",
             component: JobDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.newMode
+            ),
           },
           {
             path: "details/:jobId",
             pathMatch: "full",
             component: JobDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.readOnlyMode
+            ),
+          },
+          {
+            path: "edit/:jobId",
+            pathMatch: "full",
+            component: JobDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.editingMode
+            ),
           },
         ],
       },
