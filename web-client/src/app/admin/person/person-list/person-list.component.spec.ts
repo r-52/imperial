@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PersonListComponent } from './person-list.component';
+import { PersonListComponent } from "./person-list.component";
 
-describe('PersonListComponent', () => {
+describe("PersonListComponent", () => {
   let component: PersonListComponent;
   let fixture: ComponentFixture<PersonListComponent>;
 
@@ -10,7 +10,7 @@ describe('PersonListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PersonListComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('PersonListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

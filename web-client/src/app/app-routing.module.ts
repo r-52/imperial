@@ -1,21 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
-      import('./homepage/homepage.module').then((h) => h.HomepageModule),
+      import("./homepage/homepage.module").then((h) => h.HomepageModule),
   },
   {
-    path: 'admin',
+    path: "admin",
     loadChildren: () =>
-      import('./admin/admin.module').then((a) => a.AdminModule),
+      import("./admin/admin.module").then((a) => a.AdminModule),
   },
   {
-    path: 'client',
+    path: "client",
     loadChildren: () =>
-      import('./client/client.module').then((c) => c.ClientModule),
+      import("./client/client.module").then((c) => c.ClientModule),
   },
 ];
 

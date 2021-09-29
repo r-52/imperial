@@ -1,112 +1,112 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ApplicationListComponent } from './application/application-list/application-list.component';
-import { ApplicationDetailsComponent } from './application/application-details/application-details.component';
-import { LocationListComponent } from './location/location-list/location-list.component';
-import { LocationDetailsComponent } from './location/location-details/location-details.component';
-import { PersonListComponent } from './person/person-list/person-list.component';
-import { PersonDetailsComponent } from './person/person-details/person-details.component';
-import { JobListComponent } from './job/job-list/job-list.component';
-import { JobPreviewComponent } from './job/job-preview/job-preview.component';
-import { JobDetailsComponent } from './job/job-details/job-details.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ApplicationListComponent } from "./application/application-list/application-list.component";
+import { ApplicationDetailsComponent } from "./application/application-details/application-details.component";
+import { LocationListComponent } from "./location/location-list/location-list.component";
+import { LocationDetailsComponent } from "./location/location-details/location-details.component";
+import { PersonListComponent } from "./person/person-list/person-list.component";
+import { PersonDetailsComponent } from "./person/person-details/person-details.component";
+import { JobListComponent } from "./job/job-list/job-list.component";
+import { JobPreviewComponent } from "./job/job-preview/job-preview.component";
+import { JobDetailsComponent } from "./job/job-details/job-details.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: DashboardComponent,
     children: [
       {
-        path: 'applications/:page',
+        path: "applications/:page",
         component: ApplicationListComponent,
-        pathMatch: 'full',
+        pathMatch: "full",
       },
       {
-        path: 'application',
+        path: "application",
         children: [
           {
-            path: 'new',
-            pathMatch: 'full',
+            path: "new",
+            pathMatch: "full",
             component: ApplicationDetailsComponent,
           },
           {
-            path: 'details/:applicationId',
-            pathMatch: 'full',
+            path: "details/:applicationId",
+            pathMatch: "full",
             component: ApplicationDetailsComponent,
           },
         ],
       },
 
       {
-        path: 'locations/:page',
+        path: "locations/:page",
         component: LocationListComponent,
-        pathMatch: 'full',
+        pathMatch: "full",
       },
       {
-        path: 'location',
+        path: "location",
         children: [
           {
-            path: 'new',
-            pathMatch: 'full',
+            path: "new",
+            pathMatch: "full",
             component: LocationDetailsComponent,
           },
           {
-            path: 'details/:locationId',
-            pathMatch: 'full',
+            path: "details/:locationId",
+            pathMatch: "full",
             component: LocationDetailsComponent,
           },
         ],
       },
 
       {
-        path: 'persons/:page',
+        path: "persons/:page",
         component: PersonListComponent,
-        pathMatch: 'full',
+        pathMatch: "full",
       },
       {
-        path: 'person',
+        path: "person",
         children: [
           {
-            path: 'person',
-            pathMatch: 'full',
+            path: "person",
+            pathMatch: "full",
             component: PersonDetailsComponent,
           },
           {
-            path: 'details/:personId',
-            pathMatch: 'full',
+            path: "details/:personId",
+            pathMatch: "full",
             component: PersonDetailsComponent,
           },
         ],
       },
 
       {
-        path: 'jobs/:page',
+        path: "jobs/:page",
         component: JobListComponent,
-        pathMatch: 'full',
+        pathMatch: "full",
       },
       {
-        path: 'job',
+        path: "job",
         children: [
           {
-            path: 'preview/:jobId',
-            pathMatch: 'full',
+            path: "preview/:jobId",
+            pathMatch: "full",
             component: JobPreviewComponent,
           },
           {
-            path: 'new',
-            pathMatch: 'full',
+            path: "new",
+            pathMatch: "full",
             component: JobDetailsComponent,
           },
           {
-            path: 'details/:jobId',
-            pathMatch: 'full',
+            path: "details/:jobId",
+            pathMatch: "full",
             component: JobDetailsComponent,
           },
         ],
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({

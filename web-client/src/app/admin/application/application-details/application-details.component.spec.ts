@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ApplicationDetailsComponent } from './application-details.component';
+import { ApplicationDetailsComponent } from "./application-details.component";
 
-describe('ApplicationDetailsComponent', () => {
+describe("ApplicationDetailsComponent", () => {
   let component: ApplicationDetailsComponent;
   let fixture: ComponentFixture<ApplicationDetailsComponent>;
 
@@ -10,7 +10,7 @@ describe('ApplicationDetailsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ApplicationDetailsComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('ApplicationDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

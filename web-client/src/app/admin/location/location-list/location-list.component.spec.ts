@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LocationListComponent } from './location-list.component';
+import { LocationListComponent } from "./location-list.component";
 
-describe('LocationListComponent', () => {
+describe("LocationListComponent", () => {
   let component: LocationListComponent;
   let fixture: ComponentFixture<LocationListComponent>;
 
@@ -10,7 +10,7 @@ describe('LocationListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ LocationListComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('LocationListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { JobPreviewComponent } from './job-preview.component';
+import { JobPreviewComponent } from "./job-preview.component";
 
-describe('JobPreviewComponent', () => {
+describe("JobPreviewComponent", () => {
   let component: JobPreviewComponent;
   let fixture: ComponentFixture<JobPreviewComponent>;
 
@@ -10,7 +10,7 @@ describe('JobPreviewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ JobPreviewComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('JobPreviewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

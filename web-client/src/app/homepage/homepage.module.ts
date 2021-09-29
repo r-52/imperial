@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { HomepageRoutingModule } from './homepage-routing.module';
+import { HomepageRoutingModule } from "./homepage-routing.module";
 
 
 @NgModule({

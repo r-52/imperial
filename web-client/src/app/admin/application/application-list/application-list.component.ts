@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-application-list',
-  templateUrl: './application-list.component.html',
-  styleUrls: ['./application-list.component.scss']
+  selector: "app-application-list",
+  templateUrl: "./application-list.component.html",
+  styleUrls: ["./application-list.component.scss"],
 })
-export class ApplicationListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ApplicationListComponent {
+  constructor() {}
 }
