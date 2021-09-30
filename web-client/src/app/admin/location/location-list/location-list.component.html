@@ -1,1 +1,10 @@
-<p>location-list works!</p>
+<mat-card>
+  <mat-card-title class="d-flex margin-top">
+    <span class="flex-base-line">Company Locations</span>
+    <app-spacer></app-spacer>
+    <app-fab-new-button (newClick)="onNewClick()"></app-fab-new-button>
+  </mat-card-title>
+  <mat-card-content class="margin-top">
+    <app-location-list-table></app-location-list-table>
+  </mat-card-content>
+</mat-card>

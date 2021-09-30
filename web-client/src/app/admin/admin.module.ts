@@ -16,7 +16,13 @@ import { PersonDetailsComponent } from "./person/person-details/person-details.c
 import { AuthForgottenComponent } from "./auth/auth-forgotten/auth-forgotten.component";
 import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
 import { AuthRegisterComponent } from "./auth/auth-register/auth-register.component";
-import { NavigationListComponent } from './shared/components/navigation/navigation-list/navigation-list.component';
+import { NavigationListComponent } from "./shared/components/navigation/navigation-list/navigation-list.component";
+import { PersonListTableComponent } from "./shared/components/person/person-list-table/person-list-table.component";
+import { LocationListTableComponent } from "./shared/components/location/location-list-table/location-list-table.component";
+import { ScheduleListTableComponent } from "./shared/components/schedule/schedule-list-table/schedule-list-table.component";
+import { ScheduleListComponent } from "./schedule/schedule-list/schedule-list.component";
+import { ScheduleDetailsComponent } from "./schedule/schedule-details/schedule-details.component";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -34,7 +40,12 @@ import { NavigationListComponent } from './shared/components/navigation/navigati
     AuthLoginComponent,
     AuthRegisterComponent,
     NavigationListComponent,
+    PersonListTableComponent,
+    LocationListTableComponent,
+    ScheduleListTableComponent,
+    ScheduleListComponent,
+    ScheduleDetailsComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, MaterialModule],
+  imports: [CommonModule, AdminRoutingModule, MaterialModule, SharedModule],
 })
 export class AdminModule {}

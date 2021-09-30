@@ -27,5 +27,5 @@ func SetupApplicationRoutes(router fiber.Router) {
 	router.Post("/:company/", createApplication)
 	router.Delete("/:company/:id", deleteApplication)
 	router.Get("/:company/", getAllApplicationsForCompany)
-	router.Patch("/:company/:id", updateApplication)
+	router.Patch("/update/:company/:id", updateApplication)
 }

@@ -15,6 +15,8 @@ import { DetailComponentModeEnum } from "../shared/enums/detail-component/detail
 import { AuthRegisterComponent } from "./auth/auth-register/auth-register.component";
 import { AuthForgottenComponent } from "./auth/auth-forgotten/auth-forgotten.component";
 import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
+import { ScheduleDetailsComponent } from "./schedule/schedule-details/schedule-details.component";
+import { ScheduleListComponent } from "./schedule/schedule-list/schedule-list.component";
 
 const routes: Routes = [
   {
@@ -61,6 +63,33 @@ const routes: Routes = [
             path: "details/:applicationId",
             pathMatch: "full",
             component: ApplicationDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.readOnlyMode
+            ),
+          },
+        ],
+      },
+
+      {
+        path: "schedules",
+        component: ScheduleListComponent,
+        pathMatch: "full",
+      },
+      {
+        path: "schedule",
+        children: [
+          {
+            path: "new",
+            pathMatch: "full",
+            component: ScheduleDetailsComponent,
+            data: DetailComponentModeModel.createRouteDataForDetailMode(
+              DetailComponentModeEnum.newMode
+            ),
+          },
+          {
+            path: "details/:scheduleId",
+            pathMatch: "full",
+            component: ScheduleDetailsComponent,
             data: DetailComponentModeModel.createRouteDataForDetailMode(
               DetailComponentModeEnum.readOnlyMode
             ),

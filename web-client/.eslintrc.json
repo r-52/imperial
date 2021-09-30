@@ -29,6 +29,7 @@
         "no-use-before-define": "error",
         "quotes": ["error", "double"],
 
+
         "@angular-eslint/directive-selector": [
           "error",
           {

@@ -11,7 +11,10 @@ import { MatListModule } from "@angular/material/list";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatTabsModule } from "@angular/material/tabs";
-
+import { MatInputModule } from "@angular/material/input";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
 @NgModule({
   declarations: [],
   exports: [
@@ -26,6 +29,10 @@ import { MatTabsModule } from "@angular/material/tabs";
     MatMenuModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   imports: [
     CommonModule,
@@ -40,6 +47,10 @@ import { MatTabsModule } from "@angular/material/tabs";
     MatMenuModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
 })
 export class MaterialModule {}

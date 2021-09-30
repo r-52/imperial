@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NavigationListComponent } from "./navigation-list.component";
+import { FabNewButtonComponent } from "./fab-new-button.component";
 
-describe("NavigationListComponent", () => {
-  let component: NavigationListComponent;
-  let fixture: ComponentFixture<NavigationListComponent>;
+describe("FabNewButtonComponent", () => {
+  let component: FabNewButtonComponent;
+  let fixture: ComponentFixture<FabNewButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationListComponent ]
+      declarations: [ FabNewButtonComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavigationListComponent);
+    fixture = TestBed.createComponent(FabNewButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

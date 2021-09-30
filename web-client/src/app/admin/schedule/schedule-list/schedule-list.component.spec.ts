@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NavigationListComponent } from "./navigation-list.component";
+import { ScheduleListComponent } from "./schedule-list.component";
 
-describe("NavigationListComponent", () => {
-  let component: NavigationListComponent;
-  let fixture: ComponentFixture<NavigationListComponent>;
+describe("ScheduleListComponent", () => {
+  let component: ScheduleListComponent;
+  let fixture: ComponentFixture<ScheduleListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationListComponent ]
+      declarations: [ ScheduleListComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavigationListComponent);
+    fixture = TestBed.createComponent(ScheduleListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

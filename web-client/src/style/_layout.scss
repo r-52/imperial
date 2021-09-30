@@ -1,0 +1,37 @@
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-xs-100 {
+
+}
+
+.fw-with-margin {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+  width: calc(100% - 2rem);
+}
+
+.margin-top {
+  margin-top: 1rem !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-base-line {
+  align-self: center;
+}
