@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BaseComponent } from "../../../shared/components/base/base/base.component";
 import { ActivatedRoute } from "@angular/router";
+import { combineLatest, zip } from "rxjs";
 
 @Component({
   selector: "app-location-details",
@@ -8,11 +9,16 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./location-details.component.scss"],
 })
 export class LocationDetailsComponent extends BaseComponent implements OnInit {
-  constructor() {
+  constructor(private readonly _route: ActivatedRoute) {
     super();
   }
 
   public ngOnInit() {
-    super.ngOnInit();
+    this._subscriptions.push(
+      combineLatest([this._route.data]).subscribe((next) => {
+        const routeData = next[0];
+        console.log(routeData);
+      })
+    );
   }
 }
