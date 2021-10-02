@@ -1,0 +1,4 @@
+<ng-container *ngIf="detailMode === detailModeEnum.editingMode">
+  <app-cancel-button (clickCancel)="onCancelClick()"></app-cancel-button>
+  <app-save-button (saveClick)="onSaveClick()"></app-save-button>
+</ng-container>

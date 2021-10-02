@@ -1,0 +1,4 @@
+<ng-container *ngIf="detailMode === detailModeEnum.readOnlyMode">
+  <app-cancel-button (clickCancel)="onCancelClick()"></app-cancel-button>
+  <app-edit-button (editClick)="onEditClick()"></app-edit-button>
+</ng-container>

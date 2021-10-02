@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
+import { DetailComponentModeEnum } from "../../../enums/detail-component/detail-component-mode.enum";
 
 @Component({
   selector: "app-base",
@@ -13,6 +13,16 @@ export class BaseComponent implements OnDestroy {
    * @protected
    */
   protected _subscriptions: Subscription[] = [];
+
+  /**
+   * the current mode that is used
+   */
+  public detailMode: DetailComponentModeEnum = DetailComponentModeEnum.newMode;
+
+  /**
+   * the type alias for the enum
+   */
+  public detailModeEnum = DetailComponentModeEnum;
 
   constructor() {}
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelButtonComponent } from './cancel-button.component';
+import { SaveFooterComponent } from './save-footer.component';
 
-describe('CancelButtonComponent', () => {
-  let component: CancelButtonComponent;
-  let fixture: ComponentFixture<CancelButtonComponent>;
+describe('SaveFooterComponent', () => {
+  let component: SaveFooterComponent;
+  let fixture: ComponentFixture<SaveFooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CancelButtonComponent ]
+      declarations: [ SaveFooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CancelButtonComponent);
+    fixture = TestBed.createComponent(SaveFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

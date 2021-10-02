@@ -1,0 +1,4 @@
+<ng-container *ngIf="detailMode === detailModeEnum.newMode">
+  <app-cancel-button (clickCancel)="onCancelClick()"></app-cancel-button>
+  <app-create-button (createClick)="onCreateClick()"></app-create-button>
+</ng-container>

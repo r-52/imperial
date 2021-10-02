@@ -23,6 +23,11 @@ import { ScheduleListTableComponent } from "./shared/components/schedule/schedul
 import { ScheduleListComponent } from "./schedule/schedule-list/schedule-list.component";
 import { ScheduleDetailsComponent } from "./schedule/schedule-details/schedule-details.component";
 import { SharedModule } from "../shared/shared.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { CreateFooterComponent } from "./shared/components/details/footer/create-footer/create-footer.component";
+import { SaveFooterComponent } from "./shared/components/details/footer/save-footer/save-footer.component";
+import { EditFooterComponent } from "./shared/components/details/footer/edit-footer/edit-footer.component";
+import { BaseFooterComponent } from "./shared/components/details/footer/base-footer/base-footer.component";
 
 @NgModule({
   declarations: [
@@ -45,7 +50,17 @@ import { SharedModule } from "../shared/shared.module";
     ScheduleListTableComponent,
     ScheduleListComponent,
     ScheduleDetailsComponent,
+    CreateFooterComponent,
+    SaveFooterComponent,
+    EditFooterComponent,
+    BaseFooterComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, MaterialModule, SharedModule],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    MaterialModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AdminModule {}

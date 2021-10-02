@@ -1,1 +1,47 @@
-<p>location-details works!</p>
+<mat-card class="margin-1">
+  <mat-card-title>
+    {{title}}
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-grid-list [cols]="2">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name of the location" formControlName="name" required>
+          <mat-error *ngIf="name?.invalid">Field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Street 1</mat-label>
+          <input matInput placeholder="Street" formControlName="street1" required>
+          <mat-error *ngIf="street1?.invalid">Field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Additional street information</mat-label>
+          <input matInput placeholder="Street extras" formControlName="street2">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Zip</mat-label>
+          <input matInput placeholder="Zip code" formControlName="zip" required>
+          <mat-error *ngIf="zip?.invalid">Field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="City" formControlName="city" required>
+          <mat-error *ngIf="city?.invalid">Field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Country" formControlName="country">
+        </mat-form-field>
+      </mat-grid-list>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <app-create-footer [detailMode]="detailMode" (createClick)="onCreateClick()"
+                       (cancelClick)="onCancelClick()"></app-create-footer>
+    <app-save-footer
+      [detailMode]="detailMode" (saveClick)="onSaveClick()" (cancelClick)="onCancelClick()"></app-save-footer>
+    <app-edit-footer (editClick)="onEditClick()" (cancelClick)="onCancelClick()"
+                     [detailMode]="detailMode"></app-edit-footer>
+  </mat-card-actions>
+</mat-card>
