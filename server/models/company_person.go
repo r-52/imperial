@@ -27,12 +27,12 @@ type CompanyPerson struct {
 	Uid string `json:"uid" gorm:"uniqueIndex"`
 
 	CompanyID                uint                        `json:"company"`
-	CompanyPersonJob         *[]CompanyPersonJob         `json:"companyPersonJob"`
-	AcceptedApplication      *[]Application              `json:"acceptedApplications" gorm:"foreignKey:AcceptedByPersonID"`
-	RejectedApplication      *[]Application              `json:"rejectedApplications" gorm:"foreignKey:RejectedByPersonID"`
-	InvitedApplication       *[]Application              `json:"invitedApplications" gorm:"foreignKey:InvitedByPersonID"`
-	Schedule                 *[]Schedule                 `json:"schedule"`
-	ApplicationInterviewNote *[]ApplicationInterviewNote `json:"applicationInterviewNote"`
+	CompanyPersonJob         []*CompanyPersonJob         `json:"companyPersonJob"`
+	AcceptedApplication      []*Application              `json:"acceptedApplications" gorm:"foreignKey:AcceptedByPersonID"`
+	RejectedApplication      []*Application              `json:"rejectedApplications" gorm:"foreignKey:RejectedByPersonID"`
+	InvitedApplication       []*Application              `json:"invitedApplications" gorm:"foreignKey:InvitedByPersonID"`
+	Schedule                 []*Schedule                 `json:"schedule"`
+	ApplicationInterviewNote []*ApplicationInterviewNote `json:"applicationInterviewNote"`
 }
 
 func (c *CompanyPerson) SetPasswordResetToken() {
