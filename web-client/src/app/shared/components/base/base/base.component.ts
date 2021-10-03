@@ -1,6 +1,7 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, Injector, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 import { DetailComponentModeEnum } from "../../../enums/detail-component/detail-component-mode.enum";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-base",
@@ -13,16 +14,6 @@ export class BaseComponent implements OnDestroy {
    * @protected
    */
   protected _subscriptions: Subscription[] = [];
-
-  /**
-   * the current mode that is used
-   */
-  public detailMode: DetailComponentModeEnum = DetailComponentModeEnum.newMode;
-
-  /**
-   * the type alias for the enum
-   */
-  public detailModeEnum = DetailComponentModeEnum;
 
   constructor() {}
 

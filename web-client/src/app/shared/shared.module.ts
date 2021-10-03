@@ -8,6 +8,7 @@ import { CreateButtonComponent } from "./components/buttons/raised/create-button
 import { CancelButtonComponent } from "./components/buttons/basic/cancel-button/cancel-button.component";
 import { EditButtonComponent } from "./components/buttons/raised/edit-button/edit-button.component";
 import { SaveButtonComponent } from "./components/buttons/raised/save-button/save-button.component";
+import { BaseDetailComponent } from "./components/base/base-detail/base-detail.component";
 
 @NgModule({
   declarations: [
@@ -18,8 +19,10 @@ import { SaveButtonComponent } from "./components/buttons/raised/save-button/sav
     CancelButtonComponent,
     EditButtonComponent,
     SaveButtonComponent,
+    BaseDetailComponent,
   ],
   exports: [
+    BaseDetailComponent,
     SpacerComponent,
     FabNewButtonComponent,
     BaseComponent,

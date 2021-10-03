@@ -1,6 +1,10 @@
-<mat-card>
-  <mat-card-title>
-    Co-Worker
+<mat-card class="margin-1">
+  <mat-card-title class="d-flex margin-top">
+    <span class="flex-base-line">Company persons</span>
+    <app-spacer></app-spacer>
+    <app-fab-new-button (newClick)="onNewClick()"></app-fab-new-button>
   </mat-card-title>
-  <app-person-list-table></app-person-list-table>
+  <mat-card-content class="margin-top">
+    <app-person-list-table></app-person-list-table>
+  </mat-card-content>
 </mat-card>

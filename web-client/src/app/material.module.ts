@@ -16,6 +16,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 @NgModule({
   declarations: [],
   exports: [
@@ -35,6 +36,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
+    MatCheckboxModule,
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
+    MatCheckboxModule,
   ],
 })
 export class MaterialModule {}

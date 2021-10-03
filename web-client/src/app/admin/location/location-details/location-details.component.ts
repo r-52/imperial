@@ -6,18 +6,17 @@ import { TitleGeneratorService } from "../../../shared/services/title/title-gene
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Location } from "@angular/common";
+import { BaseDetailComponent } from "../../../shared/components/base/base-detail/base-detail.component";
 
 @Component({
   selector: "app-location-details",
   templateUrl: "./location-details.component.html",
   styleUrls: ["./location-details.component.scss"],
 })
-export class LocationDetailsComponent extends BaseComponent implements OnInit {
-  /**
-   * the title for the card
-   */
-  public title: string = "";
-
+export class LocationDetailsComponent
+  extends BaseDetailComponent
+  implements OnInit
+{
   /**
    * the form
    */
