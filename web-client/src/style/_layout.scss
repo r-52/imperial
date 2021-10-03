@@ -39,3 +39,22 @@
 .margin-1 {
   margin: 1rem;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+// https://stackoverflow.com/a/48752954
+.row > * + * {
+  margin-left: 10px;
+}
